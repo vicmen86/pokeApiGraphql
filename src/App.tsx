@@ -1,5 +1,5 @@
 import { Redirect, Route } from 'react-router-dom';
-import { IonApp, IonRouterOutlet, setupIonicReact } from '@ionic/react';
+import { IonApp, IonContent, IonHeader, IonIcon, IonItem, IonLabel, IonList, IonMenu, IonMenuToggle, IonRouterOutlet, IonTitle, IonToolbar, setupIonicReact } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 
 
@@ -21,14 +21,40 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
-
-setupIonicReact();
-
+import AllPokemon from './pages/AllPokemon/AllPokemon';
+import Pokemon from './pages/Pokemon/Pokemon';
+import { homeOutline, arrowUpCircleOutline } from 'ionicons/icons';
+setupIonicReact()
 const App: React.FC = () => (
   <IonApp>
     <IonReactRouter>
-      <IonRouterOutlet>
-       
+      <IonMenu side="start" contentId='menuAppPoke'>
+        <IonHeader>
+          <IonToolbar>
+            <IonTitle>Menu Pokémon</IonTitle>
+          </IonToolbar>
+        </IonHeader>
+        <IonContent>
+          <IonList>
+            <IonMenuToggle>
+              <IonItem routerLink='/home' routerDirection='none' lines='none'>
+              <IonIcon color="medium" slot='start' icon={homeOutline}/>
+              <IonLabel>Home</IonLabel>
+              </IonItem>
+            </IonMenuToggle>
+            <IonMenuToggle>
+              <IonItem routerLink='/add-pokemon' routerDirection='none' lines='none'>
+              <IonIcon color="medium" slot='start' icon={arrowUpCircleOutline}/>
+              <IonLabel>Add Pokémon</IonLabel>
+              </IonItem>
+            </IonMenuToggle>
+          </IonList>
+        </IonContent>
+      </IonMenu>
+      <IonRouterOutlet id='menuAppPoke'>
+       <Route path="/home" component={AllPokemon} exact/>
+       <Route path="/add-pokemon" component={Pokemon} exact/>
+       <Redirect to="/home" />
       </IonRouterOutlet>
     </IonReactRouter>
   </IonApp>
