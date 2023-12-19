@@ -1,7 +1,7 @@
 import { IonButtons, IonCol, IonContent, IonGrid, IonHeader, IonMenuButton, IonPage, IonRow, IonTitle, IonToolbar } from "@ionic/react";
 import React from "react";
 
-const Pokemon: React.FC=()=>{
+const AddPokemon: React.FC=()=>{
 return (
     <IonPage>
       <IonHeader>
@@ -25,4 +25,4 @@ return (
 );
 }
 
-export default Pokemon;
+export default AddPokemon;

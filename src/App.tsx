@@ -22,13 +22,13 @@ import '@ionic/react/css/display.css';
 /* Theme variables */
 import './theme/variables.css';
 import AllPokemon from './pages/AllPokemon/AllPokemon';
-import Pokemon from './pages/Pokemon/Pokemon';
+import Pokemon from './pages/AddPokemon/AddPokemon';
 import { homeOutline, arrowUpCircleOutline } from 'ionicons/icons';
 setupIonicReact()
 const App: React.FC = () => (
   <IonApp>
     <IonReactRouter>
-      <IonMenu side="start" contentId='menuAppPoke'>
+      <IonMenu  side="start" contentId='menuAppPoke'>
         <IonHeader>
           <IonToolbar>
             <IonTitle>Menu Pokémon</IonTitle>
@@ -51,7 +51,7 @@ const App: React.FC = () => (
           </IonList>
         </IonContent>
       </IonMenu>
-      <IonRouterOutlet id='menuAppPoke'>
+      <IonRouterOutlet id='menuAppPoke' placeholder="Menu principal">
        <Route path="/home" component={AllPokemon} exact/>
        <Route path="/add-pokemon" component={Pokemon} exact/>
        <Redirect to="/home" />
